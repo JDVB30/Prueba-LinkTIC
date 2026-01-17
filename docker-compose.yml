@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  product-service:
+    build: ./product-service
+    container_name: product-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - micro-network
+
+  inventory-service:
+    build: ./inventory-service
+    container_name: inventory-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      # URL interna de Docker para comunicarse con el otro servicio
+      - PRODUCT_SERVICE_URL=http://product-service:8081/api/v1/products/
+    depends_on:
+      - product-service
+    networks:
+      - micro-network
+
+networks:
+  micro-network:
+    driver: bridge
