@@ -24,8 +24,8 @@ Event Logging: Los cambios de inventario emiten logs estructurados en JSON para 
 Para garantizar que los servicios suban limpios y con todas las configuraciones de seguridad aplicadas, siga estos pasos:
 
  1. Clonar el repositorio
-    - git clone <tu-enlace-al-repo>
-    - cd <nombre-carpeta>
+    - git clone (tu-enlace-al-repo)
+    - cd (nombre-carpeta)
 
  2. Limpieza y Construcción (Recomendado para asegurar que Swagger cargue)
     - docker-compose down -v
@@ -34,9 +34,9 @@ Para garantizar que los servicios suban limpios y con todas las configuraciones 
 # 3. Documentación de Endpoints (Swagger)
 Una vez levantados los servicios, puede acceder a la documentación interactiva y probar los endpoints:
 
-Product Service: http://localhost:8081/swagger-ui.html
+- Product Service: http://localhost:8081/swagger-ui.html
 
-Inventory Service: http://localhost:8082/swagger-ui.html
+- Inventory Service: http://localhost:8082/swagger-ui.html
 
 Nota: Haga clic en el botón "Authorize" e ingrese el valor SECRET123 para habilitar las peticiones.
 
@@ -45,6 +45,7 @@ Pruebas Unitarias e Integración:
 Desde la raíz de cada microservicio, ejecute:
 
 - mvn test
+
 Cobertura: Se incluyen tests para creación/actualización de productos, manejo de errores (404 Not Found) y validación de seguridad.
 
 Prueba de Resiliencia (Circuit Breaker):
