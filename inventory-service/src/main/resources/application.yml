@@ -1,0 +1,19 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: inventory-service
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      productService:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        registerHealthIndicator: true
+  retry:
+    instances:
+      productService:
+        maxAttempts: 3
+        waitDuration: 2s

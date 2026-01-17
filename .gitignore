@@ -1,0 +1,12 @@
+# Compilados
+**/target/
+*.class
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# Logs y temporales
+*.log
+.DS_Store
